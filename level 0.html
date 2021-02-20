@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>level 0</title>
+    <script>
+        // // 方法一：适用于任何句子
+        var str = 'today is a happy day';
+        var newStr = str.replace(/\b\w+\b/g, function(char) {
+            return char.slice(0, 1).toUpperCase() + char.slice(1);
+        });
+        console.log(newStr);
+
+
+        // 方法二：仅限于该句子
+        var str = 'today is a happy day';
+
+        function change(str) {
+            var arr = str.split(' ');
+            var newArr = [];
+            for (var i = 0; i < arr.length; i++) {
+                var char = arr[i];
+                newArr.push(char.slice(0, 1).toUpperCase() + char.slice(1));
+            }
+            return newArr;
+        }
+        str = change(str).join(' ');
+        console.log(str);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

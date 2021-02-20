@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>level 1(1)</title>
+    <script>
+        var arr = ['ABACCDEEF', 'GHJKKM'];
+
+        function recur(str) {
+            var obj = {};
+            for (var i = 0; i < str.length; i++) {
+                var char = str.charAt(i);
+                if (obj[char]) {
+                    obj[char]++;
+                } else {
+                    obj[char] = 1;
+                }
+            }
+            var newArr = [];
+            for (var k in obj) {
+                if (obj[k] > 1) {
+                    var string = '';
+                    for (var j = 0; j < obj[k]; j++) {
+                        string = string + k;
+                    }
+                    newArr.push(string);
+                }
+            }
+            return newArr;
+
+        }
+        var newArrary = [];
+        for (var i = 0; i < arr.length; i++) {
+            var str = arr[i];
+            newArrary.push(recur(str));
+        }
+        console.log(newArrary.flat(Infinity));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
